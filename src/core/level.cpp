@@ -42,7 +42,6 @@ bool loadBuildingMap(const char* filename,
     }
     mapFile.close();
 
-    // Parse each floor using the '+---+' border lines as column anchors
     for (int i = 0; i + 2 < lineCount; i++)
     {
         int plusCols[5];
@@ -51,7 +50,8 @@ bool loadBuildingMap(const char* filename,
         {
             if (lines[i][c] == '+')
             {
-                plusCols[plusFound++] = c;
+                plusCols[plusFound] = c;
+                plusFound++;
             }
         }
 
@@ -121,7 +121,6 @@ bool loadBuildingMap(const char* filename,
 
     return true;
 }
-
 bool loadInitialState(const char* filename,
                       int& playerFloor, int& playerRoom,
                       int& energy, int& time, int& score,
