@@ -107,7 +107,7 @@ bool isDirectlyConnected(int fromF, int fromR, int toF, int toR,
         if (fromR == 4 && toR == 4 && fromOnLift2 && toOnLift2) {
             outConnType = CONN_LIFT;
             return true;
-        }
+        } 
     }
 
     return false;
