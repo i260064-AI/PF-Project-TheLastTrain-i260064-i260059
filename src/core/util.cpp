@@ -1,5 +1,6 @@
 #include "util.h"
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Primitive helper utilities, clamping, and screen control
@@ -61,4 +62,23 @@ void trimWhitespace(char* str)
     }
 }
 
+void printHeader(const char* title)
+{
+    if (title == nullptr)
+    {
+        return;
+    }
+
+    cout << setfill('=') << setw(40) << "" << "\n";
+    cout << setfill(' ');
+    cout << "  " << title << "\n";
+    cout << setfill('=') << setw(40) << "" << "\n";
+    cout << setfill(' ');
+}
+
+void clearScreen()
+{
+    cout << "\033[2J";
+    cout << "\033[1;1H";
+}
 
